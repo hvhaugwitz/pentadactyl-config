@@ -1,0 +1,46 @@
+" search engines
+js services.browserSearch.getEngines().forEach(function (e) { if(e.name!="DuckDuckGo") e.hidden = true })
+
+silent bmark -tags searchengine -title='DuckDuckGo'                     -keyword 'ddg'      'https://duckduckgo.com/?q=%s'
+
+silent bmark -tags searchengine -title='Debian PTS'                     -keyword 'pts'      'https://packages.qa.debian.org/?src=%s'
+silent bmark -tags searchengine -title='Debian BTS'                     -keyword 'bts'      'https://bugs.debian.org/cgi-bin/pkgreport.cgi?package=%s'
+silent bmark -tags searchengine -title='Debian bug by number'           -keyword 'bug'      'https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=%s'
+
+silent bmark -tags searchengine -title='dict.cc EN-DE'                  -keyword 'cc'       'http://www.dict.cc/?s=%s'
+silent bmark -tags searchengine -title='dictionary.com'                 -keyword 'dict'     'http://dictionary.reference.com/browse/%s'
+silent bmark -tags searchengine -title='The Free Dictionary - Acronyms' -keyword 'acr'      'https://acronyms.thefreedictionary.com/?Word=%s'
+silent bmark -tags searchengine -title='Linguee'                        -keyword 'ling'     'https://www.linguee.com/search?source=auto&query=%s'
+silent bmark -tags searchengine -title='Urban Dictionary'               -keyword 'urban'    'https://www.urbandictionary.com/define.php?term=%s'
+
+silent bmark -tags searchengine -title='GitHub'                         -keyword 'github'   'https://github.com/search?q=%s'
+silent bmark -tags searchengine -title='RFC (tools.ietf.org)'           -keyword 'rfc'      'https://tools.ietf.org/html/%s'
+
+silent bmark -tags searchengine -title='YouTube'                        -keyword 'youtube'  'https://www.youtube.com/results?search_query=%s'
+silent bmark -tags searchengine -title='Wikipedia'                      -keyword 'wiki'     'https://en.wikipedia.org/wiki/Special:Search?search=%s'
+
+silent bmark -tags searchengine -title='Amazon'                         -keyword 'amazon'   'https://www.amazon.de/s?ie=UTF8&field-keywords=%s'
+
+" pentadactyl
+set defsearch=ddg
+set editor="uxterm -e vim -f"
+set findflags=rc
+set guioptions=Bsn
+set hlfind
+set showtabline=never
+highlight Hint -a font-size: 13px !important;
+map <A-p> :winopen <S-Insert><Return>
+
+" tab-options plugin
+loadplugins 'tab-options.js'
+set tabopen=link:right,orphan:groupleft,external:end
+
+" buftabs plugin
+loadplugins 'buftabs.js'
+set buftabs-elem=nthbi
+
+" noscript plugin
+map <A-t> :set nst!=<A-Tab>
+
+" local pentadactyl options
+source! ~/.pentadactylrc.local
