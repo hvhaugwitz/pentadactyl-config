@@ -30,6 +30,7 @@ set hlfind
 set showtabline=never
 highlight Hint -a font-size: 13px !important;
 map <A-p> :winopen <S-Insert><Return>
+map <Leader>/ :nohlfind<Return>
 
 " tab-options plugin
 loadplugins 'tab-options.js'
